@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Adapted from youtube tutorial https://www.youtube.com/watch?v=_74vNHkvIxY-->
+<html lang="">
+<head>
+<title>Spectrogram</title>
+<style>
+	* {
+    margin: 0;
+    padding: 0;
+} 
+</style>
+</head>
+<body>
+<main>
+  	<div id ="Spectrogram"></div>
+</main>
+</body>
+<script src="js/libs/three.min.js"></script>
+
+
+<script type="x-shader/x-vertex" id="vertexshader">
+			attribute float displacement;
+			uniform vec3 vLut[256];
+			varying vec3 vColor;
+
+			void main()
+			{
+
+				int index = int(displacement);
+				vColor = vLut[index];
+				vec3 newPosition = position + normal*displacement/25.5;
+				gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition,1.0);
+			}
+
+	</script>
+
+	<script type="x-shader/x-fragment" id="fragmentshader">
+		varying vec3 vColor;
+
+				void main()
+				{
+					gl_FragColor 	= vec4(vColor,1.0);
+				}
+
+	</script>
+    <script src="js/spectogram.js"></script>
+
+
+
+</html>
