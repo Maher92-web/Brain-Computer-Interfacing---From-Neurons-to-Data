@@ -1,7 +1,7 @@
 # json
 JavaScript Object Notation (JSON) is a standard text-based format for representing structured data based on JavaScript object syntax.
 
-This code is provided during a university project by our group members:
+Tests and simulations carried out as part of a university project by our group members:
   Chang, Mincheng
   Dong, Yufan
   Fadeeva, Anastasiia
